@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ChevronIcon } from '../Icons';
+import { CheckMarkIcon } from '../Icons';
 import { plans } from '../data';
 
 export default function Pricing() {
@@ -25,7 +25,7 @@ export default function Pricing() {
 							<ul className='space-y-4 mb-8 flex-grow'>
 								{plan.features.map((feature, index) => (
 									<li key={index} className='flex items-start'>
-										<ChevronIcon className='w-5 h-5 text-green-500 mr-2 mt-1' />
+										<CheckMarkIcon className='w-5 h-5 text-green-500 mr-2 mt-1' />
 										{feature}
 									</li>
 								))}
