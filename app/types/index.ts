@@ -40,3 +40,7 @@ export interface Photo {
 	photographer: string;
 	photographerUrl: string;
 }
+
+export interface GeneratedImageProps {
+	imageUrl: string;
+}

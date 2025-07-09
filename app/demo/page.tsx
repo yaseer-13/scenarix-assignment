@@ -21,7 +21,6 @@ export default function Demo() {
 		setError(null);
 
 		try {
-			// Simulate API call
 			await new Promise((resolve) => setTimeout(resolve, 2000));
 			setGeneratedImage('/images/11.webp');
 		} catch (err) {
