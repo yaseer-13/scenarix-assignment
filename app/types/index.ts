@@ -23,9 +23,20 @@ interface Feature {
 export interface FeaturesProps {
 	features: Feature[];
 }
+
 export interface PromptInputProps {
 	prompt: string;
 	setPrompt: (prompt: string) => void;
 	isGenerating: boolean;
 	onGenerate: () => void;
+}
+
+export interface Photo {
+	id: number;
+	title: string;
+	description: string;
+	image: string;
+	tags: string[];
+	photographer: string;
+	photographerUrl: string;
 }

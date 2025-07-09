@@ -5,16 +5,7 @@ import Link from 'next/link';
 import { createClient } from 'pexels';
 import { useCallback, useEffect, useState } from 'react';
 import { ErrorIcon } from '../Icons';
-
-interface Photo {
-	id: number;
-	title: string;
-	description: string;
-	image: string;
-	tags: string[];
-	photographer: string;
-	photographerUrl: string;
-}
+import { Photo } from '../types';
 
 export default function Gallery() {
 	const [photos, setPhotos] = useState<Photo[]>([]);
