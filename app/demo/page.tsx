@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import PromptInput from "../components/PromptInput";
 import GeneratedImage from "../components/GeneratedImage";
+import PromptInput from "../components/PromptInput";
 
 export default function Demo() {
   const [prompt, setPrompt] = useState("");
@@ -15,7 +15,7 @@ export default function Demo() {
     setIsGenerating(true);
     // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 2000));
-    setGeneratedImage("/11.png");
+    setGeneratedImage("/images/11.webp");
     setIsGenerating(false);
   };
 
