@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { PromptInputProps } from '../types';
 
 export default function PromptInput({
@@ -8,26 +8,9 @@ export default function PromptInput({
 	onGenerate,
 }: PromptInputProps) {
 	const [localPrompt, setLocalPrompt] = useState(prompt);
-	const [buttonText, setButtonText] = useState('Generate Art');
-	const [isMounted, setIsMounted] = useState(false);
-	const [charCount, setCharCount] = useState(0);
-
 	useEffect(() => {
 		setLocalPrompt(prompt);
 	}, [prompt]);
-
-	useEffect(() => {
-		setButtonText(isGenerating ? 'Generating...' : 'Generate Art');
-	}, [isGenerating]);
-
-	useEffect(() => {
-		setIsMounted(true);
-		return () => setIsMounted(false);
-	}, []);
-
-	useEffect(() => {
-		setCharCount(localPrompt.length);
-	}, [localPrompt]);
 
 	const handlePromptChange = useCallback(
 		(e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -38,20 +21,14 @@ export default function PromptInput({
 		[setPrompt]
 	);
 
+	const buttonText = isGenerating ? 'Generating...' : 'Generate Art';
+	const charCount = localPrompt.length;
+	const isButtonDisabled = isGenerating || !localPrompt.trim();
+
 	const handleGenerate = useCallback(() => {
-		if (isGenerating || !localPrompt) return;
+		if (isButtonDisabled) return;
 		onGenerate();
-	}, [isGenerating, localPrompt, onGenerate]);
-
-	const isButtonDisabled = useMemo(() => {
-		return isGenerating || !localPrompt;
-	}, [isGenerating, localPrompt]);
-
-	const charCountDisplay = useMemo(() => {
-		return `Characters: ${charCount}`;
-	}, [charCount]);
-
-	if (!isMounted) return null;
+	}, [isButtonDisabled, onGenerate]);
 
 	return (
 		<div className='mb-6'>
@@ -65,7 +42,7 @@ export default function PromptInput({
 				className='w-full h-32 p-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent focus:outline-none text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700'
 				placeholder='A serene landscape with mountains and a lake at sunset...'
 			/>
-			<div className='text-sm text-gray-500 mt-1'>{charCountDisplay}</div>
+			<span className='text-sm text-gray-500 mt-1'>Characters: {charCount}</span>
 			<button
 				onClick={handleGenerate}
 				disabled={isButtonDisabled}
