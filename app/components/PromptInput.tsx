@@ -22,7 +22,7 @@ export default function PromptInput({
 	);
 
 	const buttonText = isGenerating ? 'Generating...' : 'Generate Art';
-	const charCount = localPrompt.length;
+	const charCount = localPrompt.replace(/\s/g, '').length; // Remove all whitespace characters before counting
 	const isButtonDisabled = isGenerating || !localPrompt.trim();
 
 	const handleGenerate = useCallback(() => {
