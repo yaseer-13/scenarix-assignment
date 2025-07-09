@@ -1,19 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronIcon } from '../Icons';
-
-interface BlogPost {
-	title: string;
-	excerpt: string;
-	date: string;
-	readTime: number;
-	image: string;
-	link: string;
-}
-
-interface BlogPostCardProps {
-	post: BlogPost;
-}
+import { BlogPostCardProps } from '../types';
 
 export default function BlogPostCard({ post }: BlogPostCardProps) {
 	return (
