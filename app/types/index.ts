@@ -14,3 +14,12 @@ interface BlogPost {
 export interface BlogPostCardProps {
 	post: BlogPost;
 }
+
+interface Feature {
+	title: string;
+	description: string;
+}
+
+export interface FeaturesProps {
+	features: Feature[];
+}
