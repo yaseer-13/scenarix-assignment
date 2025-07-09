@@ -8,6 +8,7 @@ export default function PromptInput({
 	onGenerate,
 }: PromptInputProps) {
 	const [localPrompt, setLocalPrompt] = useState(prompt);
+
 	useEffect(() => {
 		setLocalPrompt(prompt);
 	}, [prompt]);
@@ -22,7 +23,9 @@ export default function PromptInput({
 	);
 
 	const buttonText = isGenerating ? 'Generating...' : 'Generate Art';
-	const charCount = localPrompt.replace(/\s/g, '').length; // Remove all whitespace characters before counting
+
+	// Remove all whitespace characters before counting
+	const charCount = localPrompt.replace(/\s/g, '').length;
 	const isButtonDisabled = isGenerating || !localPrompt.trim();
 
 	const handleGenerate = useCallback(() => {
