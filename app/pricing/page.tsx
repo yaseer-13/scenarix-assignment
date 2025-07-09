@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { ChevronIcon } from '../Icons';
+import { plans } from '../data';
 
 export default function Pricing() {
 	return (
@@ -10,7 +11,7 @@ export default function Pricing() {
 					Choose the plan that's right for you
 				</p>
 
-				<div className='flex overflow-hidden gap-8 max-w-5xl mx-auto'>
+				<div className='flex overflow-hidden gap-8 max-w-5xl mx-auto flex-wrap justify-center'>
 					{plans.map((plan) => (
 						<div
 							className='min-w-[250px] bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 flex flex-col'
@@ -55,93 +56,3 @@ export default function Pricing() {
 		</div>
 	);
 }
-
-const plans = [
-	{
-		name: 'House',
-		price: 9,
-		features: [
-			'50 generations per month',
-			'Basic image editing',
-			'Standard resolution',
-			'Email support',
-		],
-		ctaText: 'Start Free Trial',
-		ctaLink: '/signup?plan=starter',
-		popular: false,
-	},
-	{
-		name: 'Village',
-		price: 29,
-		features: [
-			'200 generations per month',
-			'Advanced image editing',
-			'High resolution',
-			'Priority support',
-			'Custom styles',
-		],
-		ctaText: 'Start Free Trial',
-		ctaLink: '/signup?plan=pro',
-		popular: true,
-	},
-	{
-		name: 'Town',
-		price: 99,
-		features: [
-			'Unlimited generations',
-			'Full image editing suite',
-			'4K resolution',
-			'24/7 support',
-			'Custom styles',
-			'API access',
-		],
-		ctaText: 'Contact Sales',
-		ctaLink: '/contact',
-		popular: false,
-	},
-	{
-		name: 'City',
-		price: 99,
-		features: [
-			'Unlimited generations',
-			'Full image editing suite',
-			'4K resolution',
-			'24/7 support',
-			'Custom styles',
-			'API access',
-		],
-		ctaText: 'Contact Sales',
-		ctaLink: '/contact',
-		popular: false,
-	},
-	{
-		name: 'Country',
-		price: 99,
-		features: [
-			'Unlimited generations',
-			'Full image editing suite',
-			'4K resolution',
-			'24/7 support',
-			'Custom styles',
-			'API access',
-		],
-		ctaText: 'Contact Sales',
-		ctaLink: '/contact',
-		popular: false,
-	},
-	{
-		name: 'Continent',
-		price: 99,
-		features: [
-			'Unlimited generations',
-			'Full image editing suite',
-			'4K resolution',
-			'24/7 support',
-			'Custom styles',
-			'API access',
-		],
-		ctaText: 'Contact Sales',
-		ctaLink: '/contact',
-		popular: false,
-	},
-];
